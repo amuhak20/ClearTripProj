@@ -89,7 +89,7 @@ public class SearchFlightsPage {
 
 	public void selectValues(String str, WebElement ele) {
 		Select sel = new Select(ele);
-		sel.deselectByVisibleText(str);
+		sel.selectByVisibleText(str);
 	}
 
 	@FindBy(id = "SearchBtn")
