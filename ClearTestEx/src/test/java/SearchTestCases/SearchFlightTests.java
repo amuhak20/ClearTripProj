@@ -10,7 +10,6 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -21,8 +20,19 @@ public class SearchFlightTests {
 	WebDriver driver;
 	String URL = "https://www.cleartrip.com/";
 
-	@BeforeClass(alwaysRun = true)
-	public void initiateBrowser() {
+	/*
+	 * @BeforeClass(alwaysRun = true) public void initiateBrowser() {
+	 * FirefoxProfile geoDisabled = new FirefoxProfile();
+	 * geoDisabled.setPreference("geo.enabled", false); driver = new
+	 * FirefoxDriver(geoDisabled); // searchFlights = new
+	 * SearchFlightsPage(driver);
+	 * 
+	 * searchFlights = PageFactory.initElements(driver,
+	 * SearchFlightsPage.class); }
+	 */
+
+	@BeforeMethod
+	public void launchBrowser() {
 		FirefoxProfile geoDisabled = new FirefoxProfile();
 		geoDisabled.setPreference("geo.enabled", false);
 		driver = new FirefoxDriver(geoDisabled);
@@ -30,10 +40,6 @@ public class SearchFlightTests {
 
 		searchFlights = PageFactory.initElements(driver,
 				SearchFlightsPage.class);
-	}
-
-	@BeforeMethod(alwaysRun = true)
-	public void launchBrowser() {
 		driver.get(URL);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
@@ -111,5 +117,9 @@ public class SearchFlightTests {
 	public void closeBrowser() {
 		driver.close();
 	}
+
+	/*
+	 * @AfterClass public void quitBrowser() { driver.quit(); }
+	 */
 
 }
