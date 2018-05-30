@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Suite]" parallel="none">
+  <test name="Test(failed)" parallel="none">
+    <classes>
+      <class name="SearchTestCases.SearchFlightTests">
+        <methods>
+          <include name="getLongestFlightWith1Stop"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="get5thPrice"/>
+          <include name="launchBrowser"/>
+        </methods>
+      </class> <!-- SearchTestCases.SearchFlightTests -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
